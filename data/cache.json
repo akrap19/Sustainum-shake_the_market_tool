@@ -1,0 +1,606 @@
+{
+  "generatedAt": "2026-09-01T11:10:09.969Z",
+  "records": [
+    {
+      "id": "caffe-nero",
+      "name": "Caff\u00e8 Nero",
+      "website": "https://www.caffenero.com",
+      "domain": "caffenero.com",
+      "segment": "Coffee",
+      "fitReason": "Coffee-led operator with hundreds of UK caf\u00e9s serving takeaway hot beverages daily.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [
+          "56102",
+          "56301"
+        ],
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Caff%C3%A8%20Nero"
+        }
+      },
+      "locations": {
+        "count": 650,
+        "isEstimate": true,
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Nero%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "Will Stratton-Morris",
+        "title": "CEO UK",
+        "buyingRole": "Head of procurement / packaging for hot-beverage disposables",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=Will%20Stratton-Morris%20Caff%C3%A8%20Nero"
+        }
+      },
+      "contact": {
+        "email": "will.stratton-morris@caffenero.com",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "will.stratton-morris@caffenero.com"
+        ]
+      },
+      "sustainability": {
+        "level": "moderate",
+        "note": "Reusable cup discounts and stated packaging improvement goals.",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Company website",
+          "url": "https://www.caffenero.com"
+        }
+      }
+    },
+    {
+      "id": "greggs",
+      "name": "Greggs",
+      "website": "https://www.greggs.co.uk",
+      "domain": "greggs.co.uk",
+      "segment": "Bakery",
+      "fitReason": "Massive hot drink volume in takeaway cups requiring sustainable paper lid solutions.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [],
+        "provenance": "inferred",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Greggs"
+        }
+      },
+      "locations": {
+        "count": 2400,
+        "isEstimate": true,
+        "method": "AI estimate (Gemini) \u2014 confirm live",
+        "provenance": "inferred",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Greggs%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "Roisin Currie",
+        "title": "Chief Executive Officer",
+        "buyingRole": "Executive leadership oversight on supply chain and sustainability commitments",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=Roisin%20Currie%20Greggs"
+        }
+      },
+      "contact": {
+        "email": "roisin.currie@greggs.co.uk",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "roisin.currie@greggs.co.uk"
+        ]
+      },
+      "sustainability": {
+        "level": "strong",
+        "note": "Committed to reducing single-use plastic as part of The Greggs Pledge.",
+        "provenance": "inferred",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 verify before outreach",
+          "url": "https://www.greggs.co.uk"
+        }
+      }
+    },
+    {
+      "id": "pret",
+      "name": "Pret A Manger",
+      "website": "https://www.pret.co.uk",
+      "domain": "pret.co.uk",
+      "segment": "Food-to-go",
+      "fitReason": "Food-to-go leader with dense UK estate and ongoing packaging sustainability commitments.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [
+          "56102",
+          "56103"
+        ],
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Pret%20A%20Manger"
+        }
+      },
+      "locations": {
+        "count": 550,
+        "isEstimate": true,
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Pret%20A%20Manger%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "Clare Clough",
+        "title": "UK Managing Director",
+        "buyingRole": "Packaging or sustainability buyer for food-service operations",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=Clare%20Clough%20Pret%20A%20Manger"
+        }
+      },
+      "contact": {
+        "email": "clare.clough@pret.co.uk",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "clare.clough@pret.co.uk"
+        ]
+      },
+      "sustainability": {
+        "level": "strong",
+        "note": "Long-standing sustainability programme including packaging and cup initiatives.",
+        "provenance": "live",
+        "source": {
+          "label": "Public page (fetched)",
+          "url": "https://www.pret.co.uk/sustainability"
+        }
+      }
+    },
+    {
+      "id": "coffee-1",
+      "name": "Coffee#1",
+      "website": "https://www.coffee1.co.uk",
+      "domain": "coffee1.co.uk",
+      "segment": "Coffee",
+      "fitReason": "Fast-growing regional coffee chain with substantial hot beverage takeaway packaging requirements.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [],
+        "provenance": "inferred",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Coffee%231"
+        }
+      },
+      "locations": {
+        "count": 110,
+        "isEstimate": true,
+        "method": "AI estimate (Gemini) \u2014 confirm live",
+        "provenance": "inferred",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Coffee%231%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "bruce newman",
+        "title": "Managing Director",
+        "buyingRole": "Executive lead on supply chain and purchasing operations",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=bruce%20newman%20Coffee%231"
+        }
+      },
+      "contact": {
+        "email": "bruce.newman@coffee1.co.uk",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "bruce.newman@coffee1.co.uk"
+        ]
+      },
+      "sustainability": {
+        "level": "moderate",
+        "note": "Promotes cup recycling and reduction of packaging environmental footprint.",
+        "provenance": "inferred",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 verify before outreach",
+          "url": "https://www.coffee1.co.uk"
+        }
+      }
+    },
+    {
+      "id": "joe-the-juice",
+      "name": "Joe & The Juice",
+      "website": "https://www.joejuice.com",
+      "domain": "joejuice.com",
+      "segment": "Coffee",
+      "fitReason": "Coffee and juice bar chain with growing UK footprint and disposable cup use.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [
+          "56102",
+          "56103"
+        ],
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Joe%20%26%20The%20Juice"
+        }
+      },
+      "locations": {
+        "count": 90,
+        "isEstimate": true,
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Joe%20%26%20The%20Juice%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "thomas noroxe",
+        "title": "Chief Supply Chain Officer",
+        "buyingRole": "Head of procurement / packaging for hot-beverage disposables",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=thomas%20noroxe%20Joe%20%26%20The%20Juice"
+        }
+      },
+      "contact": {
+        "email": "thomasnoroxe@joejuice.co.uk",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "thomasnoroxe@joejuice.co.uk"
+        ]
+      },
+      "sustainability": {
+        "level": "moderate",
+        "note": "Reusable cup programmes and stated reduction of disposable packaging.",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Company website",
+          "url": "https://www.joejuice.com"
+        }
+      }
+    },
+    {
+      "id": "itsu",
+      "name": "itsu",
+      "website": "https://www.itsu.com",
+      "domain": "itsu.com",
+      "segment": "Food-to-go",
+      "fitReason": "Multi-site food-to-go chain with hot drinks alongside takeaway meals across the UK.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [
+          "56103",
+          "56101"
+        ],
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=itsu"
+        }
+      },
+      "locations": {
+        "count": 75,
+        "isEstimate": true,
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=itsu%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "julian metcalfe",
+        "title": "Founder",
+        "buyingRole": "Packaging or sustainability buyer for food-service operations",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=julian%20metcalfe%20itsu"
+        }
+      },
+      "contact": {
+        "email": "julian.metcalfe@itsu.com",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "julian.metcalfe@itsu.com"
+        ]
+      },
+      "sustainability": {
+        "level": "strong",
+        "note": "Health-led brand with published sustainable packaging commitments.",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Company website",
+          "url": "https://www.itsu.com"
+        }
+      }
+    },
+    {
+      "id": "black-sheep",
+      "name": "Black Sheep Coffee",
+      "website": "https://leavetheherd.com",
+      "domain": "leavetheherd.com",
+      "segment": "Coffee",
+      "fitReason": "Fast-growing UK coffee chain with significant hot-beverage takeaway demand.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [
+          "56102",
+          "56301"
+        ],
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Black%20Sheep%20Coffee"
+        }
+      },
+      "locations": {
+        "count": 120,
+        "isEstimate": true,
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Black%20Sheep%20Coffee%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "gabriel shohet",
+        "title": "Co-Founder",
+        "buyingRole": "Head of procurement / packaging for hot-beverage disposables",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=gabriel%20shohet%20Black%20Sheep%20Coffee"
+        }
+      },
+      "contact": {
+        "email": "gabriel.shohet@leavetheherd.com",
+        "validationStatus": "unverified",
+        "validationMethod": "Derived gabriel.shohet@leavetheherd.com from AI discovery (Google Gemini) \u2014 verify before outreach \u2014 mailbox not confirmed after 10 checks",
+        "provenance": "inferred",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox not confirmed"
+        },
+        "knownEmails": [
+          "gabriel.shohet@leavetheherd.com"
+        ]
+      },
+      "sustainability": {
+        "level": "moderate",
+        "note": "Growing chain with public interest in sustainable coffee packaging.",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Company website",
+          "url": "https://leavetheherd.com"
+        }
+      }
+    },
+    {
+      "id": "leon",
+      "name": "LEON",
+      "website": "https://leon.co",
+      "domain": "leon.co",
+      "segment": "QSR",
+      "fitReason": "Naturally fast food operator serving high volumes of hot organic coffee in disposable cups.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [],
+        "provenance": "inferred",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=LEON"
+        }
+      },
+      "locations": {
+        "count": 80,
+        "isEstimate": true,
+        "method": "AI estimate (Gemini) \u2014 confirm live",
+        "provenance": "inferred",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=LEON%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "glenn edwards",
+        "title": "Managing Director",
+        "buyingRole": "Oversees UK retail operations and packaging procurement",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=glenn%20edwards%20LEON"
+        }
+      },
+      "contact": {
+        "email": "glenn@leon.co",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "glenn@leon.co"
+        ]
+      },
+      "sustainability": {
+        "level": "strong",
+        "note": "Strong focus on eco-friendly packaging and ethical sourcing.",
+        "provenance": "live",
+        "source": {
+          "label": "Public page (fetched)",
+          "url": "https://leon.co"
+        }
+      }
+    },
+    {
+      "id": "gails",
+      "name": "Gail's Bakery",
+      "website": "https://gails.co.uk",
+      "domain": "gails.co.uk",
+      "segment": "Bakery",
+      "fitReason": "Premium bakery/coffee estate with strong takeaway hot-drink sales in urban locations.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [
+          "56103",
+          "10710"
+        ],
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Gail's%20Bakery"
+        }
+      },
+      "locations": {
+        "count": 130,
+        "isEstimate": true,
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Gail%27s%20Bakery%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "tom molnar",
+        "title": "Chief Executive Officer",
+        "buyingRole": "Operations or procurement lead for takeaway cup lids",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=tom%20molnar%20Gail%27s%20Bakery"
+        }
+      },
+      "contact": {
+        "email": "tom.molnar@gails.com",
+        "validationStatus": "unverified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 70, 2 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox not confirmed"
+        },
+        "knownEmails": [
+          "tom.molnar@gails.com"
+        ]
+      },
+      "sustainability": {
+        "level": "moderate",
+        "note": "Artisan positioning with increasing focus on responsible packaging.",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Company website",
+          "url": "https://gails.co.uk"
+        }
+      }
+    },
+    {
+      "id": "tortilla",
+      "name": "Tortilla Mexican Grill",
+      "website": "https://www.tortilla.co.uk",
+      "domain": "tortilla.co.uk",
+      "segment": "QSR",
+      "fitReason": "UK Mexican QSR with 60+ restaurants and growing hot-drink / takeaway lines.",
+      "isCurrentCustomer": false,
+      "registration": {
+        "sicCodes": [
+          "56101",
+          "56103"
+        ],
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Companies House register (search)",
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Tortilla%20Mexican%20Grill"
+        }
+      },
+      "locations": {
+        "count": 65,
+        "isEstimate": true,
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "UK store map (public locator estimate)",
+          "url": "https://www.google.com/maps/search/?api=1&query=Tortilla%20Mexican%20Grill%20UK"
+        }
+      },
+      "decisionMaker": {
+        "name": "brandon stephens",
+        "title": "Chief Executive Officer",
+        "buyingRole": "Procurement or operations lead for restaurant packaging",
+        "provenance": "live",
+        "source": {
+          "label": "LinkedIn people search \u2014 verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=brandon%20stephens%20Tortilla%20Mexican%20Grill"
+        }
+      },
+      "contact": {
+        "email": "brandon.stephens@tortilla.com",
+        "validationStatus": "verified",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "provenance": "live",
+        "source": {
+          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+        },
+        "knownEmails": [
+          "brandon.stephens@tortilla.com"
+        ]
+      },
+      "sustainability": {
+        "level": "moderate",
+        "note": "QSR operator reviewing takeaway packaging across its UK estate.",
+        "provenance": "manually-reviewed",
+        "source": {
+          "label": "Company website",
+          "url": "https://www.tortilla.co.uk"
+        }
+      }
+    }
+  ]
+}

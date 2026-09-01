@@ -1,126 +1,176 @@
-# studio19-template-2026
+# Shake the Market — Sustainium Paper Lids
 
-An opinionated Next.js 16 starter template with React 19, Tailwind CSS v4, shadcn/ui, and a curated set of layout primitives and animation wrappers — ready for building modern web apps.
+A one-page preview tool for Sustainium sales. It ranks UK operators to approach first for **PFAS-free moulded-fibre paper lids**, names who to contact, and shows how trustworthy each piece of data is.
 
-## Tech Stack
+It is a focused prototype built for an AI Automation Engineer case study — not a production CRM.
 
-| Layer | Technology |
-| --- | --- |
-| Framework | [Next.js 16](https://nextjs.org) (App Router, React Server Components) |
-| UI Components | [shadcn/ui v3](https://ui.shadcn.com) (new-york style) + [Radix UI](https://www.radix-ui.com) |
-| Styling | [Tailwind CSS v4](https://tailwindcss.com) with CSS variables theming |
-| Animations | [tw-animate-css](https://github.com/Wombosvideo/tw-animate-css) + [motion/react](https://motion.dev) (Framer Motion) |
-| Icons | [Lucide React](https://lucide.dev) |
-| Fonts | [Geist Sans & Geist Mono](https://vercel.com/font) via `next/font` |
-| Package Manager | [pnpm](https://pnpm.io) |
+**Best viewed on a laptop or desktop.** The prospect table is not designed for small screens.
 
-## Getting Started
+---
+
+# What you get
+
+Open the page and you see a ranked shortlist of UK multi-site QSR, coffee, bakery, and food-to-go chains (20+ physical locations). Current Sustainium customers are already excluded (Starbucks, Burger King, KFC, Costa Coffee).
+
+Each row shows:
+
+- **Priority** — rank and a 0–100 score
+- **Company** — segment, UK site scale, why it fits paper lids
+- **Decision-maker** — named person or buying role, with a source
+- **Contact** — email plus a validation status
+- **Trust** — whether fields are live, reviewed, or still need a human check
+
+Click a row for the full score breakdown, source links, and any *Needs review* reasons.
+
+**Export CSV** downloads the same records in HubSpot’s contacts + companies import format. Review anything flagged *Needs review* before outreach — this tool does not send emails or write to HubSpot.
+
+---
+
+# Run it
+
+You need [Node.js](https://nodejs.org/) 20+ and [pnpm](https://pnpm.io/).
 
 ```bash
-# Install dependencies
 pnpm install
-
-# Start the development server
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+Then open [http://localhost:3000](http://localhost:3000).
 
-## Project Structure
+It works immediately against a prepared, labelled dataset. No API keys required.
 
-```
-app/                  → Pages, layouts, and global styles (App Router)
-components/
-  ui/                 → shadcn/ui components (Button, Badge, …)
-  layout/             → Layout primitives (Stack, Grid, Cluster, Center, Split, Switcher)
-  animations/         → Motion wrappers (FadeIn, SlideInFromTop)
-  system/             → Utility components (ProjectVersion)
-lib/                  → Shared utilities (cn() class merging helper)
-types/                → Shared TypeScript types (BaseComponentProps, PropsWithClassName)
-public/               → Static assets
-```
+| Command | What it does |
+|---|---|
+| `pnpm dev` | Local preview at http://localhost:3000 |
+| `pnpm build` | Production build |
+| `pnpm start` | Serve the production build |
+| `pnpm lint` | Lint |
 
-## Layout Primitives
+---
 
-Composable layout components that accept `BaseComponentProps` and use `cn()` for class merging.
+# Optional live data
 
-| Component | Purpose |
-| --- | --- |
-| `Stack` | Vertical flex column with gap |
-| `Grid` | Responsive CSS grid with breakpoint-based column control |
-| `Cluster` | Horizontal flex wrap with gap |
-| `Center` | Flexbox centering wrapper |
-| `Split` | Flex container with `justify-between` |
-| `Switcher` | Horizontal flex that wraps, items stretch equally |
-
-```tsx
-import { Stack } from "@/components/layout/stack";
-import { Grid } from "@/components/layout/grid";
-
-<Stack className="gap-4">
-  <Grid sm={1} md={2} lg={3}>
-    {/* Responsive grid items */}
-  </Grid>
-</Stack>
-```
-
-## Animation Wrappers
-
-Client components powered by `motion/react` for declarative enter animations.
-
-| Component | Effect |
-| --- | --- |
-| `FadeIn` | Opacity 0 → 1 |
-| `SlideInFromTop` | Slide down + fade + scale |
-
-```tsx
-import { FadeIn } from "@/components/animations/fade-in";
-
-<FadeIn>
-  <h1>Hello</h1>
-</FadeIn>
-```
-
-## Adding Components
-
-### shadcn/ui components
+To refresh against live sources, copy `.env.example` to `.env.local` and add any of these keys. All are optional — missing keys fall back to labelled data instead of failing.
 
 ```bash
-pnpm dlx shadcn@latest add <component-name>
+cp .env.example .env.local
 ```
 
-Components are installed to `components/ui/` and configured via `components.json` (new-york style, RSC-compatible).
+| Variable | Used for | Cost |
+|---|---|---|
+| `GOOGLE_GENERATIVE_AI_API_KEY` | Gemini proposes real UK operators and suggested personal emails | Free via [Google AI Studio](https://aistudio.google.com/apikey) |
+| `COMPANIES_HOUSE_API_KEY` | UK company number, status, SIC codes, directors | Free |
+| `VRFYMAIL_API_KEY` | Mailbox check (the only way an email becomes *Verified*) | Optional, 5k/month free at [vrfymail](https://vrfymail.com/email-verification-api) |
+| `HUNTER_API_KEY` | Extra Domain Search email candidates | Optional |
 
-### Custom components
+**With a Gemini key:** the first page load runs AI discovery once and caches the result for 24 hours. Click **Refetch data** to run it again.
 
-- **Layout primitives** → `components/layout/` — accept `BaseComponentProps`, use `cn()`
-- **Animation wrappers** → `components/animations/` — add `"use client"`, use `motion/react`
-- **UI components** → `components/ui/` — use `cva` for variants, `cn()` for class merging
+**Without keys:** you see the prepared dataset. Refetch still runs OpenStreetMap location counts plus keyless email checks (Mailverdict). Gemini suggestions are never treated as verified facts on their own.
 
-## Theming
+---
 
-Colors and radii are defined as CSS custom properties in `app/globals.css` and mapped to Tailwind via `@theme inline`. Dark mode uses the `.dark` class strategy.
+# How to read the dashboard
 
-Key design tokens include `--background`, `--foreground`, `--primary`, `--secondary`, `--muted`, `--accent`, `--destructive`, `--border`, `--ring`, and `--radius`.
+## Priority score (0–100)
 
-## Scripts
+Same inputs always produce the same score.
 
-| Command | Description |
-| --- | --- |
-| `pnpm dev` | Start development server |
-| `pnpm build` | Production build |
-| `pnpm start` | Start production server |
-| `pnpm lint` | Run ESLint |
+| Factor | Points | What it measures |
+|---|---|---|
+| Segment fit | 25 | Coffee, food-to-go, bakery, or QSR alignment with paper lids |
+| UK location scale | 25 | Number of UK sites (20+ required by the brief) |
+| Paper-lid need | 20 | Estimated hot-beverage cup volume |
+| Sustainability signal | 15 | Public PFAS / packaging commitments on the operator’s own site |
+| Contact confidence | 15 | Email validation status |
 
-## Conventions
+Each company also gets a short plain-English explanation of why it ranks where it does.
 
-- **Imports** — always use the `@/` path alias
-- **Class merging** — always use `cn()` from `@/lib/utils`
-- **Component variants** — use `cva` from `class-variance-authority`
-- **Exports** — named exports, not default exports
-- **Server Components** — default; only add `"use client"` when interactivity is needed
+## Data labels
 
-## License
+Every field carries a provenance badge:
 
-Private project.
-# studio19-template-2026
+| Label | Meaning |
+|---|---|
+| **Live** | Confirmed by Companies House, OpenStreetMap, Hunter, or a fetched company page — not by Gemini |
+| **Cached** | Last live pull, reused until Refetch or 24 hours |
+| **Reviewed** | Hand-checked from public filings or store locators |
+| **Inferred** | Gemini suggestion or guessed email, not yet grounded |
+| **Mocked** | Placeholder, not from a real source |
+
+## Email status
+
+An LLM cannot confirm that a mailbox exists. **Verified** is only set when vrfymail confirms the mailbox (`deliverable`). Mailverdict is MX-only, so its hits stay **Unverified**. Role inboxes such as `packaging@` are not used.
+
+| Status | Meaning |
+|---|---|
+| **Verified** | Mailbox confirmed by vrfymail |
+| **Unverified** | We have an address; it has not been confirmed |
+| **Unknown** | No email found |
+| **Invalid** | Verifier marked the address undeliverable |
+
+*Needs review* stays on until a live source confirms the field, or the mailbox is still unverified. In the prepared dataset, emails stay Unverified or Unknown.
+
+---
+
+# How the data is built
+
+1. **Brief** — UK, multi-site QSR / coffee / food-to-go / bakery, 20+ locations, paper lids, current customers excluded.
+2. **Discovery** — With a Gemini key, AI proposes real operators matching that brief. Suggestions are labelled *Inferred*. Without a key, a hand-curated shortlist is used (labelled *Reviewed*).
+3. **Enrichment** — Per company: Companies House registration and officers, OpenStreetMap location count, a fetched sustainability page, one decision-maker, and a mailbox check.
+4. **Scoring** — Deterministic 0–100 rank (table above).
+5. **Trust** — Every field keeps its provenance label.
+6. **Export** — The exact records on screen go to a HubSpot-ready CSV.
+
+Gemini is used only to **propose** companies, likely buying roles, and optional personal emails. It is never used to assert a verified mailbox, an exact location count, a company number, or a sustainability claim. Those are grounded afterwards by Companies House, OpenStreetMap, the operator’s own site, and a mailbox verifier. Source links go to the register, a UK store map, a LinkedIn people search, or the operator’s site — never a placeholder.
+
+---
+
+# Tools and data sources
+
+| Purpose | Source | Notes |
+|---|---|---|
+| Company discovery + suggested emails | Google Gemini via Vercel AI SDK | Free tier; output labelled *Inferred* |
+| UK company verification, SIC codes, directors | Companies House Public Data API | Free key; authoritative UK register |
+| UK physical location count | OpenStreetMap Overpass API | Free, no key; community data, treated as approximate |
+| Sustainability page | HTTP fetch of the operator’s own site | Live only if that page mentions packaging |
+| Email validation | vrfymail, then Mailverdict | Mailbox proof only from vrfymail |
+| Extra email candidates | Hunter.io Domain Search | Only if `HUNTER_API_KEY` is set |
+| Interface | Next.js 16, React 19, Tailwind v4, shadcn/ui | One page + one API route |
+
+---
+
+# CSV export (HubSpot)
+
+File: `sustainium-shake-the-market-hubspot.csv`
+
+Columns match HubSpot’s sample contacts + companies import: First Name, Last Name, Email Address, Name, Company Domain Name, Job Title, Website URL, Industry, Country/Region, Type, Lifecycle Stage, Description.
+
+The Description field includes segment, fit reason, location evidence, priority, confidence, contact status, and provenance — so a reviewer can see trust signals after import. Rows without an email still export the company; contact fields are left blank for manual fill-in.
+
+---
+
+# Scope and limitations
+
+This is a preview, not production software. No production credentials were used and no prospects were contacted.
+
+- OpenStreetMap location counts are approximate. Production would cross-check a places provider or official store locators.
+- Decision-makers in the prepared data are often role-level. Live Gemini / Companies House lookups can name individuals — still review before outreach.
+- Free-tier credits are small. Production would need caching, retries, rate-limit backoff, cost tracking, and deduplication.
+- HubSpot writes would be upsert-by-domain with a dry-run and field-level guards. Human review stays mandatory for any *Needs review* record.
+
+---
+
+# Project structure
+
+For anyone opening the repo:
+
+| Path | Role |
+|---|---|
+| `app/page.tsx`, `components/shake/` | Dashboard UI |
+| `app/api/companies/route.ts` | `GET` cached data, `?refresh=true` for a live pull |
+| `lib/seed.ts` | Curated shortlist and customer exclusions |
+| `lib/sources/` | Companies House, Overpass, Gemini, email verifier, optional Hunter |
+| `lib/pipeline.ts` | Live enrichment |
+| `lib/scoring.ts` | Deterministic scoring |
+| `lib/csv.ts` | HubSpot CSV mapping |
+| `data/cache.json` | Prepared dataset / last live pull |
