@@ -1,10 +1,11 @@
+import { findPrevious, normalizeContact, preferContact, preferDecisionMaker } from "@/lib/contact-merge";
+import { resolvePersonContact } from "@/lib/pipeline-email";
+import { getPreparedRecords } from "@/lib/prepared";
 import { MIN_UK_LOCATIONS } from "@/lib/scoring-factors";
+import { repairRecordSources } from "@/lib/source-repair";
 import * as ch from "@/lib/sources/companies-house";
 import { countUkLocations } from "@/lib/sources/overpass";
 import { confirmSustainability } from "@/lib/sources/sustainability";
-import { resolvePersonContact } from "@/lib/pipeline-email";
-import { normalizeContact, preferContact, preferDecisionMaker } from "@/lib/contact-merge";
-import { repairRecordSources } from "@/lib/source-repair";
 import { locationsMapSource } from "@/lib/source-urls";
 import type { EnrichTarget } from "@/lib/pipeline-targets";
 import type { CompanyRecord, CompanyRegistration, LocationEvidence } from "@/lib/types";
@@ -27,14 +28,30 @@ export async function enrichRegistration(target: EnrichTarget, base: CompanyReco
   };
 }
 
-export async function enrichLocations(target: EnrichTarget, base: CompanyRecord): Promise<LocationEvidence> {
+function isGrounded(locations?: LocationEvidence): locations is LocationEvidence {
+  return Boolean(locations && locations.count > 0 && locations.provenance !== "inferred" && locations.provenance !== "mocked");
+}
+
+/** OSM first; if mirrors fail (common on Vercel), keep a reviewed/live count instead of Gemini's guess. */
+function fallbackLocations(target: EnrichTarget, base: CompanyRecord, previous?: CompanyRecord): LocationEvidence {
+  if (previous && isGrounded(previous.locations)) return previous.locations;
+  const prepared = findPrevious(getPreparedRecords(), target);
+  if (prepared && isGrounded(prepared.locations)) return prepared.locations;
+  return base.locations;
+}
+
+export async function enrichLocations(
+  target: EnrichTarget,
+  base: CompanyRecord,
+  previous?: CompanyRecord,
+): Promise<LocationEvidence> {
   let best = 0;
   for (const brand of osmBrands(target)) {
     const result = await countUkLocations(brand).catch(() => null);
     if (result && result.count > best) best = result.count;
     if (best >= MIN_UK_LOCATIONS) break;
   }
-  if (best === 0) return base.locations;
+  if (best === 0) return fallbackLocations(target, base, previous);
   return {
     count: best,
     isEstimate: true,
@@ -52,7 +69,7 @@ export async function enrichTarget(
   const origin = base.website.replace(/\/$/, "");
   const [registration, locations, sustainability] = await Promise.all([
     enrichRegistration(target, base),
-    enrichLocations(target, base),
+    enrichLocations(target, base, previous),
     confirmSustainability(base.sustainability, target.domain, [
       base.sustainability.source?.url,
       origin,

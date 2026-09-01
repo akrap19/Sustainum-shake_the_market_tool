@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T17:50:52.150Z",
+  "generatedAt": "2026-09-01T18:03:46.226Z",
   "records": [
     {
       "id": "caffe-nero",
@@ -284,7 +284,7 @@
       "contact": {
         "email": "thomas.noroxe@joejuice.co.uk",
         "validationStatus": "verified",
-        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 2 candidate(s) checked",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
           "label": "AI discovery (Google Gemini)"
@@ -531,7 +531,6 @@
           "label": "AI discovery (Google Gemini) — mailbox not confirmed"
         },
         "knownEmails": [
-          "marta.pogroszewska@gailsbakery.co.uk",
           "tom.molnar@gails.com"
         ]
       },
@@ -587,7 +586,7 @@
       "contact": {
         "email": "brandon.stephens@tortilla.com",
         "validationStatus": "verified",
-        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 2 candidate(s) checked",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
           "label": "AI discovery (Google Gemini)"

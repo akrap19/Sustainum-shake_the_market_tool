@@ -40,11 +40,20 @@ area["ISO3166-1"="GB"][admin_level=2]->.uk;
 out count;`;
 }
 
+/** Overpass rejects anonymous / datacenter clients without an identifying UA. */
+const USER_AGENT =
+  "SustainiumShakeTheMarket/1.0 (https://sustainum-shake-the-market-tool.vercel.app/; UK site counts)";
+
 async function queryEndpoint(endpoint: string, query: string): Promise<OverpassCount> {
   const res = await fetch(endpoint, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
+      "User-Agent": USER_AGENT,
+    },
     body: `data=${encodeURIComponent(query)}`,
+    cache: "no-store",
     signal: AbortSignal.timeout(QUERY_TIMEOUT_MS),
   });
   if (!res.ok) throw new Error(`Overpass ${endpoint} returned ${res.status}`);
@@ -64,6 +73,7 @@ export async function countUkLocations(brand: string): Promise<OverpassCount | n
   try {
     return await Promise.any(ENDPOINTS.map((endpoint) => queryEndpoint(endpoint, query)));
   } catch {
+    console.error("Overpass location count failed for", brand);
     return null;
   }
 }
