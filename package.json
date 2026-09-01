@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.58",
+    "@vercel/blob": "^2.8.0",
     "ai": "^7.0.85",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

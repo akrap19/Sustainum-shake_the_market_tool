@@ -62,6 +62,9 @@ cp .env.example .env.local
 | `COMPANIES_HOUSE_API_KEY` | UK company number, status, SIC codes, directors | Free |
 | `VRFYMAIL_API_KEY` | Mailbox check (the only way an email becomes *Verified*) | Optional, 5k/month free at [vrfymail](https://vrfymail.com/email-verification-api) |
 | `HUNTER_API_KEY` | Extra Domain Search email candidates | Optional |
+| `BLOB_READ_WRITE_TOKEN` | Persist the live-pull cache to [Vercel Blob](https://vercel.com/docs/vercel-blob) on Vercel | Included on Pro; leave empty locally to keep writing `data/cache.json` |
+
+**On Vercel:** create a Blob store, connect this project, and redeploy. Vercel injects `BLOB_READ_WRITE_TOKEN` (OIDC also works once the store is linked). Localhost without the token still writes `data/cache.json`.
 
 **With a Gemini key:** the first page load runs AI discovery once and caches the result for 24 hours. Click **Refetch data** to run it again.
 
@@ -173,4 +176,4 @@ For anyone opening the repo:
 | `lib/pipeline.ts` | Live enrichment |
 | `lib/scoring.ts` | Deterministic scoring |
 | `lib/csv.ts` | HubSpot CSV mapping |
-| `data/cache.json` | Prepared dataset / last live pull |
+| `data/cache.json` | Prepared dataset / last local live pull. On Vercel, Refetch writes the same JSON to Blob |

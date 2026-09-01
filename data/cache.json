@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-01T11:10:09.969Z",
+  "generatedAt": "2026-09-01T17:50:52.150Z",
   "records": [
     {
       "id": "caffe-nero",
-      "name": "Caff\u00e8 Nero",
+      "name": "Caffè Nero",
       "website": "https://www.caffenero.com",
       "domain": "caffenero.com",
       "segment": "Coffee",
-      "fitReason": "Coffee-led operator with hundreds of UK caf\u00e9s serving takeaway hot beverages daily.",
+      "fitReason": "Coffee-led operator with hundreds of UK cafés serving takeaway hot beverages daily.",
       "isCurrentCustomer": false,
       "registration": {
         "sicCodes": [
@@ -36,7 +36,7 @@
         "buyingRole": "Head of procurement / packaging for hot-beverage disposables",
         "provenance": "live",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
+          "label": "LinkedIn people search — verify before outreach",
           "url": "https://www.linkedin.com/search/results/people/?keywords=Will%20Stratton-Morris%20Caff%C3%A8%20Nero"
         }
       },
@@ -46,7 +46,7 @@
         "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
           "will.stratton-morris@caffenero.com"
@@ -64,28 +64,31 @@
     },
     {
       "id": "greggs",
-      "name": "Greggs",
+      "name": "Greggs plc",
       "website": "https://www.greggs.co.uk",
       "domain": "greggs.co.uk",
       "segment": "Bakery",
-      "fitReason": "Massive hot drink volume in takeaway cups requiring sustainable paper lid solutions.",
+      "fitReason": "Nationwide bakery chain with very high takeaway hot-drink volume across 2,000+ UK shops.",
       "isCurrentCustomer": false,
       "registration": {
-        "sicCodes": [],
-        "provenance": "inferred",
+        "sicCodes": [
+          "56103",
+          "47240"
+        ],
+        "provenance": "manually-reviewed",
         "source": {
           "label": "Companies House register (search)",
-          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Greggs"
+          "url": "https://find-and-update.company-information.service.gov.uk/search/companies?q=Greggs%20plc"
         }
       },
       "locations": {
         "count": 2400,
         "isEstimate": true,
-        "method": "AI estimate (Gemini) \u2014 confirm live",
-        "provenance": "inferred",
+        "method": "Reviewed from public store-locator / filing estimates",
+        "provenance": "manually-reviewed",
         "source": {
           "label": "UK store map (public locator estimate)",
-          "url": "https://www.google.com/maps/search/?api=1&query=Greggs%20UK"
+          "url": "https://www.google.com/maps/search/?api=1&query=Greggs%20plc%20UK"
         }
       },
       "decisionMaker": {
@@ -94,7 +97,7 @@
         "buyingRole": "Executive leadership oversight on supply chain and sustainability commitments",
         "provenance": "live",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
+          "label": "LinkedIn people search — verify before outreach",
           "url": "https://www.linkedin.com/search/results/people/?keywords=Roisin%20Currie%20Greggs"
         }
       },
@@ -104,7 +107,7 @@
         "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
           "roisin.currie@greggs.co.uk"
@@ -112,10 +115,10 @@
       },
       "sustainability": {
         "level": "strong",
-        "note": "Committed to reducing single-use plastic as part of The Greggs Pledge.",
-        "provenance": "inferred",
+        "note": "Public targets to reduce single-use plastics and improve recyclable packaging.",
+        "provenance": "manually-reviewed",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 verify before outreach",
+          "label": "Company website",
           "url": "https://www.greggs.co.uk"
         }
       }
@@ -155,7 +158,7 @@
         "buyingRole": "Packaging or sustainability buyer for food-service operations",
         "provenance": "live",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
+          "label": "LinkedIn people search — verify before outreach",
           "url": "https://www.linkedin.com/search/results/people/?keywords=Clare%20Clough%20Pret%20A%20Manger"
         }
       },
@@ -165,7 +168,7 @@
         "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
           "clare.clough@pret.co.uk"
@@ -187,7 +190,7 @@
       "website": "https://www.coffee1.co.uk",
       "domain": "coffee1.co.uk",
       "segment": "Coffee",
-      "fitReason": "Fast-growing regional coffee chain with substantial hot beverage takeaway packaging requirements.",
+      "fitReason": "Regional coffee shop operator across Wales and England with substantial takeaway beverage volume ideal for 80/90mm lids.",
       "isCurrentCustomer": false,
       "registration": {
         "sicCodes": [],
@@ -200,7 +203,7 @@
       "locations": {
         "count": 110,
         "isEstimate": true,
-        "method": "AI estimate (Gemini) \u2014 confirm live",
+        "method": "AI estimate (Gemini) — confirm live",
         "provenance": "inferred",
         "source": {
           "label": "UK store map (public locator estimate)",
@@ -213,7 +216,7 @@
         "buyingRole": "Executive lead on supply chain and purchasing operations",
         "provenance": "live",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
+          "label": "LinkedIn people search — verify before outreach",
           "url": "https://www.linkedin.com/search/results/people/?keywords=bruce%20newman%20Coffee%231"
         }
       },
@@ -223,7 +226,7 @@
         "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
           "bruce.newman@coffee1.co.uk"
@@ -231,11 +234,11 @@
       },
       "sustainability": {
         "level": "moderate",
-        "note": "Promotes cup recycling and reduction of packaging environmental footprint.",
+        "note": "Focused on ethical coffee sourcing and reducing single-use packaging footprint.",
         "provenance": "inferred",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 verify before outreach",
-          "url": "https://www.coffee1.co.uk"
+          "label": "Public page (company site)",
+          "url": "https://www.coffee1.co.uk/our-story/"
         }
       }
     },
@@ -269,25 +272,25 @@
         }
       },
       "decisionMaker": {
-        "name": "thomas noroxe",
+        "name": "Thomas Noroxe",
         "title": "Chief Supply Chain Officer",
         "buyingRole": "Head of procurement / packaging for hot-beverage disposables",
-        "provenance": "live",
+        "provenance": "manually-reviewed",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
-          "url": "https://www.linkedin.com/search/results/people/?keywords=thomas%20noroxe%20Joe%20%26%20The%20Juice"
+          "label": "LinkedIn people search — verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=Thomas%20Noroxe%20Joe%20%26%20The%20Juice"
         }
       },
       "contact": {
-        "email": "thomasnoroxe@joejuice.co.uk",
+        "email": "thomas.noroxe@joejuice.co.uk",
         "validationStatus": "verified",
-        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 2 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
-          "thomasnoroxe@joejuice.co.uk"
+          "thomas.noroxe@joejuice.co.uk"
         ]
       },
       "sustainability": {
@@ -330,13 +333,13 @@
         }
       },
       "decisionMaker": {
-        "name": "julian metcalfe",
+        "name": "Julian Metcalfe",
         "title": "Founder",
         "buyingRole": "Packaging or sustainability buyer for food-service operations",
-        "provenance": "live",
+        "provenance": "manually-reviewed",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
-          "url": "https://www.linkedin.com/search/results/people/?keywords=julian%20metcalfe%20itsu"
+          "label": "LinkedIn people search — verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=Julian%20Metcalfe%20itsu"
         }
       },
       "contact": {
@@ -345,7 +348,7 @@
         "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
           "julian.metcalfe@itsu.com"
@@ -391,22 +394,22 @@
         }
       },
       "decisionMaker": {
-        "name": "gabriel shohet",
+        "name": "Gabriel Shohet",
         "title": "Co-Founder",
         "buyingRole": "Head of procurement / packaging for hot-beverage disposables",
-        "provenance": "live",
+        "provenance": "manually-reviewed",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
-          "url": "https://www.linkedin.com/search/results/people/?keywords=gabriel%20shohet%20Black%20Sheep%20Coffee"
+          "label": "LinkedIn people search — verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=Gabriel%20Shohet%20Black%20Sheep%20Coffee"
         }
       },
       "contact": {
         "email": "gabriel.shohet@leavetheherd.com",
         "validationStatus": "unverified",
-        "validationMethod": "Derived gabriel.shohet@leavetheherd.com from AI discovery (Google Gemini) \u2014 verify before outreach \u2014 mailbox not confirmed after 10 checks",
+        "validationMethod": "Derived gabriel.shohet@leavetheherd.com from AI discovery (Google Gemini) — verify before outreach — mailbox not confirmed after 10 checks",
         "provenance": "inferred",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox not confirmed"
+          "label": "AI discovery (Google Gemini) — mailbox not confirmed"
         },
         "knownEmails": [
           "gabriel.shohet@leavetheherd.com"
@@ -428,7 +431,7 @@
       "website": "https://leon.co",
       "domain": "leon.co",
       "segment": "QSR",
-      "fitReason": "Naturally fast food operator serving high volumes of hot organic coffee in disposable cups.",
+      "fitReason": "Mission-driven fast-casual restaurant chain serving high volumes of coffee with a core commitment to environmental sustainability.",
       "isCurrentCustomer": false,
       "registration": {
         "sicCodes": [],
@@ -441,7 +444,7 @@
       "locations": {
         "count": 80,
         "isEstimate": true,
-        "method": "AI estimate (Gemini) \u2014 confirm live",
+        "method": "AI estimate (Gemini) — confirm live",
         "provenance": "inferred",
         "source": {
           "label": "UK store map (public locator estimate)",
@@ -454,7 +457,7 @@
         "buyingRole": "Oversees UK retail operations and packaging procurement",
         "provenance": "live",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
+          "label": "LinkedIn people search — verify before outreach",
           "url": "https://www.linkedin.com/search/results/people/?keywords=glenn%20edwards%20LEON"
         }
       },
@@ -464,7 +467,7 @@
         "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
           "glenn@leon.co"
@@ -472,7 +475,7 @@
       },
       "sustainability": {
         "level": "strong",
-        "note": "Strong focus on eco-friendly packaging and ethical sourcing.",
+        "note": "Pioneered carbon-neutral coffee initiatives and prioritises planet-friendly, plastic-free takeaway packaging.",
         "provenance": "live",
         "source": {
           "label": "Public page (fetched)",
@@ -506,7 +509,7 @@
         "provenance": "manually-reviewed",
         "source": {
           "label": "UK store map (public locator estimate)",
-          "url": "https://www.google.com/maps/search/?api=1&query=Gail%27s%20Bakery%20UK"
+          "url": "https://www.google.com/maps/search/?api=1&query=Gail's%20Bakery%20UK"
         }
       },
       "decisionMaker": {
@@ -515,7 +518,7 @@
         "buyingRole": "Operations or procurement lead for takeaway cup lids",
         "provenance": "live",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
+          "label": "LinkedIn people search — verify before outreach",
           "url": "https://www.linkedin.com/search/results/people/?keywords=tom%20molnar%20Gail%27s%20Bakery"
         }
       },
@@ -525,9 +528,10 @@
         "validationMethod": "vrfymail mailbox check (SMTP + MX), score 70, 2 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox not confirmed"
+          "label": "AI discovery (Google Gemini) — mailbox not confirmed"
         },
         "knownEmails": [
+          "marta.pogroszewska@gailsbakery.co.uk",
           "tom.molnar@gails.com"
         ]
       },
@@ -571,22 +575,22 @@
         }
       },
       "decisionMaker": {
-        "name": "brandon stephens",
+        "name": "Brandon Stephens",
         "title": "Chief Executive Officer",
         "buyingRole": "Procurement or operations lead for restaurant packaging",
-        "provenance": "live",
+        "provenance": "manually-reviewed",
         "source": {
-          "label": "LinkedIn people search \u2014 verify before outreach",
-          "url": "https://www.linkedin.com/search/results/people/?keywords=brandon%20stephens%20Tortilla%20Mexican%20Grill"
+          "label": "LinkedIn people search — verify before outreach",
+          "url": "https://www.linkedin.com/search/results/people/?keywords=Brandon%20Stephens%20Tortilla%20Mexican%20Grill"
         }
       },
       "contact": {
         "email": "brandon.stephens@tortilla.com",
         "validationStatus": "verified",
-        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 1 candidate(s) checked",
+        "validationMethod": "vrfymail mailbox check (SMTP + MX), score 95, 2 candidate(s) checked",
         "provenance": "live",
         "source": {
-          "label": "AI discovery (Google Gemini) \u2014 mailbox verified with vrfymail"
+          "label": "AI discovery (Google Gemini)"
         },
         "knownEmails": [
           "brandon.stephens@tortilla.com"
