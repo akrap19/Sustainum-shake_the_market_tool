@@ -8,7 +8,7 @@ import { countUkLocations } from "@/lib/sources/overpass";
 import { confirmSustainability } from "@/lib/sources/sustainability";
 import { locationsMapSource } from "@/lib/source-urls";
 import type { EnrichTarget } from "@/lib/pipeline-targets";
-import type { CompanyRecord, CompanyRegistration, LocationEvidence } from "@/lib/types";
+import type { CompanyRecord, CompanyRegistration, LocationEvidence, Provenance } from "@/lib/types";
 
 function osmBrands(target: EnrichTarget): string[] {
   const cleaned = target.osmBrand.replace(/\s+(UK|Coffee|Café|Cafe)$/i, "").trim();
@@ -16,49 +16,41 @@ function osmBrands(target: EnrichTarget): string[] {
   return [...new Set([cleaned || target.osmBrand, short])].filter((b) => b.length >= 2);
 }
 
-export async function enrichRegistration(target: EnrichTarget, base: CompanyRecord): Promise<CompanyRegistration> {
+function isGrounded<T extends { provenance: Provenance }>(value?: T): value is T {
+  return Boolean(value && value.provenance !== "inferred" && value.provenance !== "mocked");
+}
+
+function preferGrounded<T extends { provenance: Provenance }>(live: T, previous?: T, prepared?: T): T {
+  if (isGrounded(live)) return live;
+  if (isGrounded(previous)) return previous;
+  if (isGrounded(prepared)) return prepared;
+  return live;
+}
+
+function preparedOf(target: EnrichTarget) {
+  return findPrevious(getPreparedRecords(), target);
+}
+
+export async function enrichRegistration(target: EnrichTarget, base: CompanyRecord, previous?: CompanyRecord): Promise<CompanyRegistration> {
   const match = await ch.searchCompany(target.name, target.companyNumberHint).catch(() => null);
-  if (!match) return base.registration;
-  return {
-    companyNumber: match.companyNumber,
-    status: match.status,
-    sicCodes: match.sicCodes.length ? match.sicCodes : base.registration.sicCodes,
-    provenance: "live",
-    source: { label: "Companies House profile", url: match.profileUrl },
-  };
+  const live: CompanyRegistration = match
+    ? { companyNumber: match.companyNumber, status: match.status, sicCodes: match.sicCodes.length ? match.sicCodes : base.registration.sicCodes, provenance: "live", source: { label: "Companies House profile", url: match.profileUrl } }
+    : base.registration;
+  return preferGrounded(live, previous?.registration, preparedOf(target)?.registration);
 }
 
-function isGrounded(locations?: LocationEvidence): locations is LocationEvidence {
-  return Boolean(locations && locations.count > 0 && locations.provenance !== "inferred" && locations.provenance !== "mocked");
-}
-
-/** OSM first; if mirrors fail (common on Vercel), keep a reviewed/live count instead of Gemini's guess. */
-function fallbackLocations(target: EnrichTarget, base: CompanyRecord, previous?: CompanyRecord): LocationEvidence {
-  if (previous && isGrounded(previous.locations)) return previous.locations;
-  const prepared = findPrevious(getPreparedRecords(), target);
-  if (prepared && isGrounded(prepared.locations)) return prepared.locations;
-  return base.locations;
-}
-
-export async function enrichLocations(
-  target: EnrichTarget,
-  base: CompanyRecord,
-  previous?: CompanyRecord,
-): Promise<LocationEvidence> {
+export async function enrichLocations(target: EnrichTarget, base: CompanyRecord, previous?: CompanyRecord): Promise<LocationEvidence> {
   let best = 0;
   for (const brand of osmBrands(target)) {
     const result = await countUkLocations(brand).catch(() => null);
     if (result && result.count > best) best = result.count;
     if (best >= MIN_UK_LOCATIONS) break;
   }
-  if (best === 0) return fallbackLocations(target, base, previous);
-  return {
-    count: best,
-    isEstimate: true,
-    method: "Live OpenStreetMap Overpass brand node/way count (approximate)",
-    provenance: "live",
-    source: locationsMapSource(target.name, true),
-  };
+  const live: LocationEvidence =
+    best === 0
+      ? base.locations
+      : { count: best, isEstimate: true, method: "Live OpenStreetMap Overpass brand node/way count (approximate)", provenance: "live", source: locationsMapSource(target.name, true) };
+  return preferGrounded(live, previous?.locations, preparedOf(target)?.locations);
 }
 
 export async function enrichTarget(
@@ -67,8 +59,9 @@ export async function enrichTarget(
   previous?: CompanyRecord,
 ): Promise<CompanyRecord> {
   const origin = base.website.replace(/\/$/, "");
-  const [registration, locations, sustainability] = await Promise.all([
-    enrichRegistration(target, base),
+  const prepared = preparedOf(target);
+  const [registration, locations, confirmed] = await Promise.all([
+    enrichRegistration(target, base, previous),
     enrichLocations(target, base, previous),
     confirmSustainability(base.sustainability, target.domain, [
       base.sustainability.source?.url,
@@ -77,6 +70,7 @@ export async function enrichTarget(
       `${origin}/ethics`,
     ]),
   ]);
+  const sustainability = preferGrounded(confirmed, previous?.sustainability, prepared?.sustainability);
   const withReg: CompanyRecord = { ...base, registration, locations, sustainability };
   const officers = registration.companyNumber
     ? await ch.getActiveOfficers(registration.companyNumber).catch(() => [])

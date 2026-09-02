@@ -5,16 +5,30 @@ import { buildLiveRecords, liveSourcesConfigured } from "@/lib/pipeline";
 import { getPreparedRecords, TARGET_COMPANY_COUNT } from "@/lib/prepared";
 import { scoreAndRank } from "@/lib/scoring";
 import { repairRecordSources } from "@/lib/source-repair";
-import type { CompanyRecord, Dataset } from "@/lib/types";
+import type { CompanyRecord, Dataset, Provenance } from "@/lib/types";
 
-function withReviewedNames(records: CompanyRecord[]): CompanyRecord[] {
+function isWeak(provenance: Provenance): boolean {
+  return provenance === "inferred" || provenance === "mocked";
+}
+
+function withReviewedFallbacks(records: CompanyRecord[]): CompanyRecord[] {
   const prepared = getPreparedRecords();
   const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "");
   return records.map((record) => {
-    if (looksLikePersonName(record.decisionMaker.name)) return record;
     const match = prepared.find((p) => p.id === record.id || norm(p.name) === norm(record.name));
-    if (!match || !looksLikePersonName(match.decisionMaker.name)) return record;
-    return { ...record, decisionMaker: { ...match.decisionMaker, buyingRole: record.decisionMaker.buyingRole || match.decisionMaker.buyingRole } };
+    if (!match) return record;
+    const decisionMaker = looksLikePersonName(record.decisionMaker.name)
+      ? record.decisionMaker
+      : looksLikePersonName(match.decisionMaker.name)
+        ? { ...match.decisionMaker, buyingRole: record.decisionMaker.buyingRole || match.decisionMaker.buyingRole }
+        : record.decisionMaker;
+    return {
+      ...record,
+      registration: isWeak(record.registration.provenance) ? match.registration : record.registration,
+      locations: isWeak(record.locations.provenance) ? match.locations : record.locations,
+      sustainability: isWeak(record.sustainability.provenance) ? match.sustainability : record.sustainability,
+      decisionMaker,
+    };
   });
 }
 
@@ -36,7 +50,7 @@ function toDataset(
     mode,
     notes,
     companies: scoreAndRank(
-      withReviewedNames(records).map((r) => {
+      withReviewedFallbacks(records).map((r) => {
         const repaired = repairRecordSources(r);
         return { ...repaired, contact: normalizeContact(repaired.contact) };
       }),
